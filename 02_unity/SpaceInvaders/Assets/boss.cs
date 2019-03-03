@@ -10,7 +10,7 @@ public class boss : MonoBehaviour {
     public GeneradorAliens2[] gg = new GeneradorAliens2[10];
     public float nextWave = 1;
     public float thisWave = 1;
-    public int life ;
+    public int? life = null;
     private int wave = 0;
     private AudioSource[] rll = new AudioSource[2];
     private enum direccion { IZQ, DER };
@@ -49,7 +49,7 @@ public class boss : MonoBehaviour {
         vida = GameObject.Find("vida");
     // Objeto para reproducir la explosión de un alien
     efectoExplosion = GameObject.Find("EfectoExplosion");
-        vida.GetComponent<ControlMarcador>().puntos += life;
+        vida.GetComponent<ControlMarcador>().puntos += life.Value;
     }
 	
     
@@ -143,7 +143,7 @@ void Update () {
 
             // Sumar la puntuación al marcador
             marcador.GetComponent<ControlMarcador>().puntos += puntos;
-            vida.GetComponent<ControlMarcador>().puntos = life;
+            vida.GetComponent<ControlMarcador>().puntos = life.Value;
             life  = life - 1;
 
             // Sumar la puntuación al marcador

@@ -24,7 +24,7 @@ public class mina : MonoBehaviour {
             if (ManualParticleSystems == null || ManualParticleSystems.Length == 0 ||
                 System.Array.IndexOf(ManualParticleSystems, p) < 0)
             {
-                if (p.startDelay == 0.0f)
+                if (p.main.startDelayMultiplier == 0.0f)
                 {
                     // wait until next frame because the transform may change
                     p.startDelay = 0.01f;
@@ -36,7 +36,7 @@ public class mina : MonoBehaviour {
     }
 
 
-    void OnCollisionEnter2D(Collision coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
         // Detectar la colisión
 

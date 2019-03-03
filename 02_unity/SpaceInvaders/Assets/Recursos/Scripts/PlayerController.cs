@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 case 3:
                     nextFire = Time.time + cadencia;
-                    llama = (Rigidbody) Instantiate(munition, disparador.position, disparador.rotation);
+                    Instantiate(munition, disparador.position, disparador.rotation);
                     GetComponent<AudioSource>().Play();
                     break;
                 case 4:
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
     }
 
-    void OnCollisionEnter2D(Collision coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
         // Detectar la colisión entre el alien y otros elementos
 
